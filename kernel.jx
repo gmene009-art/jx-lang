@@ -1,0 +1,22 @@
+// test.jx - Simple test kernel
+kernel main {
+    // Disable interrupts
+    cli;
+    
+    // Set VGA pointer
+    let screen: *u16 = 0xB8000;
+    
+    // Print 'A' at position 0
+    screen[0] = ('A' | 0x0F00);
+    
+    // Print 'B' at position 1
+    screen[1] = ('B' | 0x0F00);
+    
+    // Enable interrupts
+    sti;
+    
+    // Infinite halt loop
+    loop {
+        hlt;
+    }
+}

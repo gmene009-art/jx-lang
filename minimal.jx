@@ -1,0 +1,11 @@
+// minimal.jx
+// JX minimal kernel for x86_64
+
+entry main
+
+fn main() {
+    // infinite loop to prevent crash
+    loop:
+        nop
+        jmp loop
+}
